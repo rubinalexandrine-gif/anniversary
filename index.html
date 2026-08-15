@@ -5,311 +5,266 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Joyeux Anniversaire ! 🎉</title>
   
-  <!-- Polices Google Fonts pour un rendu élégant -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    /* === VARIABLES & DESIGN SYSTEM === */
     :root {
       --bg-color: #fdfbf7;
       --card-bg: #ffffff;
       --primary-green: #4a5d4e;
-      --soft-green: #8a9a86;
       --gold-accent: #c5a059;
       --text-dark: #2b2b2b;
       --text-muted: #666666;
-      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background-color: var(--bg-color);
       color: var(--text-dark);
       font-family: 'Montserrat', sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-      /* Motifs filigranes légers en arrière-plan */
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(74, 93, 78, 0.05) 0%, transparent 40%);
+      padding: 40px 20px;
     }
 
-    h1, h2, h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 700;
-    }
+    .container { max-width: 1000px; margin: 0 auto; }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* === HERO SECTION === */
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      padding: 60px 0;
-      position: relative;
-    }
-
-    .hero-text {
-      flex: 1;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--gold-accent);
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-
-    .hero-title {
-      font-size: 3.8rem;
-      line-height: 1.1;
-      color: var(--primary-green);
-      margin-bottom: 20px;
-    }
-
-    .hero-subtitle {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: 30px;
-      max-width: 480px;
-    }
-
-    .hero-image-wrapper {
-      flex: 1;
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-img-frame {
-      width: 320px;
-      height: 400px;
-      border-radius: 200px 200px 20px 20px; /* Forme d'arche élégante */
-      overflow: hidden;
-      border: 3px solid var(--gold-accent);
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-img-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Illustration vectorielle de lys autour de l'image */
-    .lily-decoration {
-      position: absolute;
-      z-index: 1;
-      width: 120px;
-      opacity: 0.8;
-    }
-
-    .lily-left {
-      top: -20px;
-      left: 10px;
-      transform: rotate(-15deg);
-    }
-
-    .lily-right {
-      bottom: -30px;
-      right: 10px;
-      transform: rotate(140deg);
-    }
-
-    /* === BUTTONS === */
-    .btn-celebrate {
-      background-color: var(--primary-green);
-      color: #fff;
-      border: none;
-      padding: 15px 35px;
-      font-size: 1rem;
-      font-family: 'Montserrat', sans-serif;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(74, 93, 78, 0.2);
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .btn-celebrate:hover {
-      background-color: var(--gold-accent);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(197, 160, 89, 0.3);
-    }
-
-    /* === GRID SECTIONS === */
     .section-title {
       text-align: center;
-      font-size: 2.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
       color: var(--primary-green);
-      margin: 80px 0 40px;
+      margin-bottom: 40px;
     }
 
+    /* === GRILLE DE CARTES === */
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
-      margin-bottom: 80px;
     }
 
-    .card {
-      background: var(--card-bg);
-      padding: 30px;
+    /* === OPTION 1 : CARTES QUI SE RETOURNENT (FLIP CARDS) === */
+    .flip-card {
+      background-color: transparent;
+      height: 260px;
+      perspective: 1000px; /* Effet 3D */
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-style: preserve-3d;
       border-radius: 16px;
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(197, 160, 89, 0.2);
+    }
+
+    /* Classe ajoutée en JS au clic */
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(197, 160, 89, 0.3);
+    }
+
+    .flip-card-front {
+      background: var(--card-bg);
+      color: var(--text-dark);
+    }
+
+    .flip-card-back {
+      background: var(--primary-green);
+      color: #ffffff;
+      transform: rotateY(180deg);
+    }
+
+    .card-icon { font-size: 2.2rem; margin-bottom: 12px; }
+    .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 10px; }
+    .card-desc { font-size: 0.9rem; color: var(--text-muted); }
+    .flip-card-back p { font-size: 0.95rem; line-height: 1.5; }
+    .click-hint { font-size: 0.75rem; color: var(--gold-accent); margin-top: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
+
+    /* === CARTE POP-UP (SIMPLE BUTTON STYLE) === */
+    .popup-card {
+      background: var(--card-bg);
+      height: 260px;
+      border-radius: 16px;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      box-shadow: var(--shadow-soft);
+      cursor: pointer;
       transition: transform 0.3s ease;
+    }
+
+    .popup-card:hover { transform: translateY(-5px); }
+
+    /* === OPTION 2 : FENÊTRE POP-UP (MODALE) === */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      padding: 40px 30px;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 90%;
       text-align: center;
+      position: relative;
+      border: 2px solid var(--gold-accent);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card-icon {
-      font-size: 2rem;
-      margin-bottom: 15px;
-      display: block;
-    }
-
-    .card h3 {
-      font-size: 1.6rem;
-      color: var(--primary-green);
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      font-size: 0.95rem;
+    .close-modal {
+      position: absolute;
+      top: 15px; right: 20px;
+      font-size: 1.8rem;
+      cursor: pointer;
       color: var(--text-muted);
-    }
-
-    /* === FOOTER === */
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      border-top: 1px solid rgba(197, 160, 89, 0.2);
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* === RESPONSIVE === */
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-      .hero-title {
-        font-size: 2.8rem;
-      }
-      .hero-subtitle {
-        margin: 0 auto 30px;
-      }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-text">
-        <span class="hero-badge">Un jour spécial</span>
-        <h1 class="hero-title">Joyeux Anniversaire ! 🌸</h1>
-        <p class="hero-subtitle">
-          Un petit coin du web pensé spécialement pour toi, célébrant les souvenirs, les moments précieux et notre amitié.
-        </p>
-        <button class="btn-celebrate" id="celebrateBtn">
-          <span>Envoyer des fleurs & des confettis</span> ⚜️
-        </button>
-      </div>
-
-      <div class="hero-image-wrapper">
-        <!-- SVG d'illustration de Lys (Gauche) -->
-        <svg class="lily-decoration lily-left" viewBox="0 0 100 100" fill="none" stroke="#c5a059" stroke-width="2">
-          <path d="M50 90 C 50 60, 20 40, 20 20 C 40 20, 50 40, 50 90 Z" />
-          <path d="M50 90 C 50 60, 80 40, 80 20 C 60 20, 50 40, 50 90 Z" />
-          <path d="M50 90 C 50 50, 50 10, 50 10 C 50 10, 50 50, 50 90 Z" />
-        </svg>
-
-        <!-- Photo Principale -->
-        <div class="hero-img-frame">
-          <img src="IMG_2643.jpeg" alt="Souvenir de vous deux">
-        </div>
-
-        <!-- SVG d'illustration de Lys (Droite) -->
-        <svg class="lily-decoration lily-right" viewBox="0 0 100 100" fill="none" stroke="#c5a059" stroke-width="2">
-          <path d="M50 90 C 50 60, 20 40, 20 20 C 40 20, 50 40, 50 90 Z" />
-          <path d="M50 90 C 50 60, 80 40, 80 20 C 60 20, 50 40, 50 90 Z" />
-          <path d="M50 90 C 50 50, 50 10, 50 10 C 50 10, 50 50, 50 90 Z" />
-        </svg>
-      </div>
-    </section>
-
-    <!-- Sections Souvenirs / Interactivité -->
     <h2 class="section-title">Pour toi aujourd'hui</h2>
 
     <div class="cards-grid">
-      <div class="card">
-        <span class="card-icon">📖</span>
-        <h3>Notre Histoire</h3>
-        <p>Une petite frise chronologique de nos plus beaux fous rires et moments partagés ensemble.</p>
+      
+      <!-- CARTE 1 : FLIP (Notre Histoire) -->
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <span class="card-icon">📖</span>
+            <h3 class="card-title">Notre Histoire</h3>
+            <p class="card-desc">Un petit retour sur nos moments préférés ensemble.</p>
+            <span class="click-hint">Clique pour retourner ✨</span>
+          </div>
+          <div class="flip-card-back">
+            <h3 class="card-title" style="color: var(--gold-accent);">Le savais-tu ?</h3>
+            <p>Depuis le premier jour, chaque moment passé avec toi est un souvenir précieux. Merci d'être la meilleure amie qu'on puisse rêver d'avoir ! ⚜️</p>
+          </div>
+        </div>
       </div>
 
-      <div class="card">
+      <!-- CARTE 2 : POP-UP (La Playlist) -->
+      <div class="popup-card" id="openPlaylist">
         <span class="card-icon">🎵</span>
-        <h3>La Playlist</h3>
-        <p>Toutes les chansons qui me rappellent nos voyages, nos soirées et nos conversations.</p>
+        <h3 class="card-title">La Playlist</h3>
+        <p class="card-desc">Toutes les chansons qui me rappellent nos moments forts.</p>
+        <span class="click-hint">Clique pour écouter 🎧</span>
       </div>
 
-      <div class="card">
-        <span class="card-icon">💌</span>
-        <h3>Le Mot Secret</h3>
-        <p>Une petite lettre d'amitié écrite avec le cœur pour te souhaiter la plus belle des années.</p>
+      <!-- CARTE 3 : FLIP (Le Mot Secret) -->
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <span class="card-icon">💌</span>
+            <h3 class="card-title">Mot Secret</h3>
+            <p class="card-desc">Une petite pensée rien que pour toi.</p>
+            <span class="click-hint">Clique pour lire 📜</span>
+          </div>
+          <div class="flip-card-back">
+            <h3 class="card-title" style="color: var(--gold-accent);">Un vœu pour toi</h3>
+            <p>Que cette nouvelle année t'apporte autant de joie, de rires et de réussite que tu en apportes dans la vie des autres. Happy Birthday ! 💖</p>
+          </div>
+        </div>
       </div>
+
     </div>
-
-    <footer>
-      <p>Fait avec ♡ par ta meilleure amie • Célébration & Lys</p>
-    </footer>
-
   </div>
 
-  <!-- Script pour l'effet de confettis -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-  <script>
-    const btn = document.getElementById('celebrateBtn');
+  <!-- FENÊTRE POP-UP MODALE POUR LA PLAYLIST -->
+  <div class="modal-overlay" id="playlistModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closePlaylist">&times;</span>
+      <h3 class="card-title" style="color: var(--primary-green);">🎶 Notre Playlist Speciale</h3>
+      <p style="margin-bottom: 20px; color: var(--text-muted);">Voici les sons qui résument notre amitié :</p>
+      
+      <!-- Tu peux intégrer un lecteur Spotify iframe ici ou mettre une liste -->
+      <ul style="text-align: left; list-style: none; line-height: 2.2;">
+        <li>✨ 1. Ta chanson préférée du moment</li>
+        <li>✨ 2. Le son sur lequel on danse toujours</li>
+        <li>✨ 3. La musique de nos trajets en voiture</li>
+      </ul>
+    </div>
+  </div>
 
-    btn.addEventListener('click', () => {
-      // Déclenche une pluie de confettis aux couleurs du site (Vert olive, Or, Blanc)
-      confetti({
-        particleCount: 120,
-        spread: 80,
-        origin: { y: 0.6 },
-        colors: ['#c5a059', '#4a5d4e', '#8a9a86', '#ffffff']
-      });
+  <script>
+    // Gestion de la Pop-up
+    const modal = document.getElementById('playlistModal');
+    const openBtn = document.getElementById('openPlaylist');
+    const closeBtn = document.getElementById('closePlaylist');
+
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+
+    // Fermer si on clique en dehors du cadre blanc
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+      }
     });
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
