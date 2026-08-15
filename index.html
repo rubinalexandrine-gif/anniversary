@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joyeux Anniversaire ! 🎉</title>
+  
+  <!-- Polices Google Fonts pour un rendu élégant -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* === VARIABLES & DESIGN SYSTEM === */
+    :root {
+      --bg-color: #fdfbf7;
+      --card-bg: #ffffff;
+      --primary-green: #4a5d4e;
+      --soft-green: #8a9a86;
+      --gold-accent: #c5a059;
+      --text-dark: #2b2b2b;
+      --text-muted: #666666;
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      /* Motifs filigranes légers en arrière-plan */
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(74, 93, 78, 0.05) 0%, transparent 40%);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* === HERO SECTION === */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 60px 0;
+      position: relative;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold-accent);
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: 3.8rem;
+      line-height: 1.1;
+      color: var(--primary-green);
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      max-width: 480px;
+    }
+
+    .hero-image-wrapper {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-img-frame {
+      width: 320px;
+      height: 400px;
+      border-radius: 200px 200px 20px 20px; /* Forme d'arche élégante */
+      overflow: hidden;
+      border: 3px solid var(--gold-accent);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Illustration vectorielle de lys autour de l'image */
+    .lily-decoration {
+      position: absolute;
+      z-index: 1;
+      width: 120px;
+      opacity: 0.8;
+    }
+
+    .lily-left {
+      top: -20px;
+      left: 10px;
+      transform: rotate(-15deg);
+    }
+
+    .lily-right {
+      bottom: -30px;
+      right: 10px;
+      transform: rotate(140deg);
+    }
+
+    /* === BUTTONS === */
+    .btn-celebrate {
+      background-color: var(--primary-green);
+      color: #fff;
+      border: none;
+      padding: 15px 35px;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(74, 93, 78, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-celebrate:hover {
+      background-color: var(--gold-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(197, 160, 89, 0.3);
+    }
+
+    /* === GRID SECTIONS === */
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--primary-green);
+      margin: 80px 0 40px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(197, 160, 89, 0.2);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 1.6rem;
+      color: var(--primary-green);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* === FOOTER === */
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid rgba(197, 160, 89, 0.2);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-title {
+        font-size: 2.8rem;
+      }
+      .hero-subtitle {
+        margin: 0 auto 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-text">
+        <span class="hero-badge">Un jour spécial</span>
+        <h1 class="hero-title">Joyeux Anniversaire ! 🌸</h1>
+        <p class="hero-subtitle">
+          Un petit coin du web pensé spécialement pour toi, célébrant les souvenirs, les moments précieux et notre amitié.
+        </p>
+        <button class="btn-celebrate" id="celebrateBtn">
+          <span>Envoyer des fleurs & des confettis</span> ⚜️
+        </button>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <!-- SVG d'illustration de Lys (Gauche) -->
+        <svg class="lily-decoration lily-left" viewBox="0 0 100 100" fill="none" stroke="#c5a059" stroke-width="2">
+          <path d="M50 90 C 50 60, 20 40, 20 20 C 40 20, 50 40, 50 90 Z" />
+          <path d="M50 90 C 50 60, 80 40, 80 20 C 60 20, 50 40, 50 90 Z" />
+          <path d="M50 90 C 50 50, 50 10, 50 10 C 50 10, 50 50, 50 90 Z" />
+        </svg>
+
+        <!-- Photo Principale -->
+        <div class="hero-img-frame">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" alt="Souvenir de vous deux">
+        </div>
+
+        <!-- SVG d'illustration de Lys (Droite) -->
+        <svg class="lily-decoration lily-right" viewBox="0 0 100 100" fill="none" stroke="#c5a059" stroke-width="2">
+          <path d="M50 90 C 50 60, 20 40, 20 20 C 40 20, 50 40, 50 90 Z" />
+          <path d="M50 90 C 50 60, 80 40, 80 20 C 60 20, 50 40, 50 90 Z" />
+          <path d="M50 90 C 50 50, 50 10, 50 10 C 50 10, 50 50, 50 90 Z" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- Sections Souvenirs / Interactivité -->
+    <h2 class="section-title">Pour toi aujourd'hui</h2>
+
+    <div class="cards-grid">
+      <div class="card">
+        <span class="card-icon">📖</span>
+        <h3>Notre Histoire</h3>
+        <p>Une petite frise chronologique de nos plus beaux fous rires et moments partagés ensemble.</p>
+      </div>
+
+      <div class="card">
+        <span class="card-icon">🎵</span>
+        <h3>La Playlist</h3>
+        <p>Toutes les chansons qui me rappellent nos voyages, nos soirées et nos conversations.</p>
+      </div>
+
+      <div class="card">
+        <span class="card-icon">💌</span>
+        <h3>Le Mot Secret</h3>
+        <p>Une petite lettre d'amitié écrite avec le cœur pour te souhaiter la plus belle des années.</p>
+      </div>
+    </div>
+
+    <footer>
+      <p>Fait avec ♡ par ta meilleure amie • Célébration & Lys</p>
+    </footer>
+
+  </div>
+
+  <!-- Script pour l'effet de confettis -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+    const btn = document.getElementById('celebrateBtn');
+
+    btn.addEventListener('click', () => {
+      // Déclenche une pluie de confettis aux couleurs du site (Vert olive, Or, Blanc)
+      confetti({
+        particleCount: 120,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ['#c5a059', '#4a5d4e', '#8a9a86', '#ffffff']
+      });
+    });
+  </script>
+</body>
+</html>
