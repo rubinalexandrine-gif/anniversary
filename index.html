@@ -399,16 +399,26 @@
 
   </div>
 
-  <!-- POP-UP POUR LA PLAYLIST -->
+    <!-- POP-UP POUR LA PLAYLIST -->
   <div class="modal-overlay" id="playlistModal">
-    <div class="modal-content" style="max-width: 500px;">
-    <span class="close-modal" id="closePlaylist">&times;</span>
-    <h3 style="color: var(--primary-green); margin-bottom: 15px;">🎶 Notre Playlist Spéciale</h3>
-    
-    <!-- LECTEUR EMBARQUÉ SPOTIFY -->
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/TON_ID_DE_PLAYLIST?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <div class="modal-content" style="max-width: 500px; padding: 25px 20px;">
+      <span class="close-modal" id="closePlaylist">&times;</span>
+      <h3 style="color: var(--primary-green); margin-bottom: 15px;">🎶 Notre Playlist Spéciale</h3>
+      
+      <!-- LECTEUR EMBARQUÉ SPOTIFY -->
+      <iframe 
+        style="border-radius:12px;" 
+        src="https://open.spotify.com/embed/playlist/30cDhblHploiYtadv0zXzX?utm_source=generator" 
+        width="100%" 
+        height="352" 
+        frameBorder="0" 
+        allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy">
+      </iframe>
+    </div>
   </div>
-  </div>
+
 
   <!-- Scripts pour les confettis et la Pop-up -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
